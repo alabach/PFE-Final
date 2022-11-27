@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header class="d-flex flex-row" >
+                <h2 class="topic  justify-content-center">List emetteur</h2>
+                <button class="bg-transparent border-0  justify-content-end" >
+                    <fa-icon class="text-success"  [icon]="faCirclePlus" size="xl" ></fa-icon>
+                </button>
+                
+                
+            </nb-card-header>
+            <nb-card-body>
+                <div class="mb-5">
+                    <form class="justify-content-between d-flex" [formGroup]="researchForm">
+                        <input type="text" oninput="this.value = this.value.toUpperCase()"
+                               class="col-md-4  animate__animated animate__backInLeft"
+                               nbInput
+                               fullWidth
+                               placeholder="search by Emetteur..."
+                               formControlName="name"
+                               (input)="onSearchChange()">
+                                <nb-select shape="rectangle"
+                                class="col-md-2  animate__animated animate__backInLeft pl-0 pr-0"
+                                fullWidth
+                                size="medium"
+                                placeholder="Select Segment"
+                                formControlName="segment"
+                                (selectedChange)="onSearchChange()">
+                        <nb-option value="ETAT">ETAT</nb-option>
+                        <nb-option value="ENTREPRISE">ENTREPRISE</nb-option>
+                        <nb-option value="all">All</nb-option>
+                        </nb-select>
+                    </form>
+                </div>
+                <table class="table table-hover table-bordered  animate__animated animate__backInUp">
+                    <thead>
+                        <tr>
+                          
+                          <th scope="col" class="text-center">Emetteur</th>
+                          <th scope="col" class="text-center">Pays</th>
+                          <th scope="col" class="text-center">Segment</th>
+                          <th scope="col" class="text-center">Secteur</th>
+                          <th scope="col" class="text-center">N°</th>
+                          <th scope="col" class="text-center">Titre</th>
+                          <th scope="col" class="text-center">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let e of emetteurList">
+                                
+                                <td class="text-center">{{e.nameEmetteur}}</td> 
+                                <td class="text-center">{{e.paysEmetteur}}</td>
+                                <td class="text-center">{{e.segmentE}}</td>
+                                <td class="text-center">{{e.secteurE}}</td>
+                                <td class="text-center">{{e.titre.length}}</td>
+                                
+                                
+                                <td class="text-center">
+                                   
+                                        <button class="bg-transparent border-0"
+                                                nbTooltipPlacement="top"
+                                                nbTooltipStatus="dark"
+                                                nbTooltip="Edit"
+                                                [routerLink]="['/pages/all/titre/',e.id_E]">
+                                             <fa-icon [icon]="faListSquares" size="xl" class="text-primary"></fa-icon>
+                                        </button>
+                                    
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex ml-auto mr-auto justify-content-between">
+                                        <button (click)="deleteEmetteur(e.id_E)" class="bg-transparent border-0"
+                                                nbTooltipPlacement="top" nbTooltipStatus="dark" nbTooltip="Delete">
+                                            <fa-icon [icon]="faTrash" size="xl" class="text-danger"></fa-icon>
+                                        </button>
+                                        <button class="bg-transparent border-0"
+                                                nbTooltipPlacement="top"
+                                                nbTooltipStatus="dark"
+                                                nbTooltip="Edit"
+                                                [routerLink]="['/pages/all/updateEm/',e.id_E]">
+                                                
+                                             <fa-icon [icon]="faPenToSquare" size="xl" class="text-primary"></fa-icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

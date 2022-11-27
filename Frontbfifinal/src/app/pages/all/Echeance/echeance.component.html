@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header >
+                <button class="bg-transparent border-0 d-flex justify-content-start" (click)="backClicked()" >
+                    <fa-icon  [icon]="faCircleChevronLeft" size="xl" ></fa-icon>
+                </button>
+                <h2 class="topic d-flex justify-content-center">echeance local</h2>
+            </nb-card-header>
+            <nb-card-body>
+                
+                <table class="table table-hover table-bordered  animate__animated animate__backInUp">
+                    <thead>
+                        <tr>
+                          <th scope="col" class="text-center">Date</th>
+                          <th scope="col" class="text-center">CRDU</th>
+                          <th scope="col" class="text-center">Ammortissement</th>
+                          <th scope="col" class="text-center">Interet</th>
+                          <th scope="col" class="text-center">Annuite</th>
+                          <th scope="col" class="text-center">CRDU Fin periode</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ec of Echeancelist">
+                                <td class="text-center">{{ec.date_echance}}</td> 
+                                <td class="text-center">{{ec.crdu_Ech}}</td>
+                                <td class="text-center">{{ec.amortissement}}</td>
+                                <td class="text-center">{{ec.interet}}</td>
+                                <td class="text-center">{{ec.mnt_ECH}}</td>
+                                <td class="text-center">{{ec.crdu_FinPer}}</td>   
+                            </tr>
+                            
+                        </tbody>
+                </table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

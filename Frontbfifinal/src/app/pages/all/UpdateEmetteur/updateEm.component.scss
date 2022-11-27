@@ -1,0 +1,19 @@
+nb-card{
+    min-height: 80vh;
+  }
+  
+  .topic{
+    text-transform: uppercase;
+    background-image:linear-gradient(to right, #775e54 0%, #636FA4  51%, #E8CBC0  100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+     display: inline-block;
+     margin: 0 0.5rem;
+
+    animation: rubberBand; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 3s; /* don't forget to set a duration! */
+  }
+
+  

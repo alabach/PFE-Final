@@ -1,0 +1,44 @@
+<nb-layout>
+    <nb-layout-column>
+        <div class="row">
+            <div class="col-12">
+                <nb-card class="shadow-lg">
+                    <nb-card-body class="p-0">
+                        <div class="d-flex h-100">
+                            <div class="col-7 login-img"></div>
+                            <div class="col-5">
+                                <div class="login-content">
+                                    <h1>LOGIN</h1>
+                                    <form class="login-form" (submit)="login()" [formGroup]="loginForm" >
+                                        <div class="form-control-group">
+                                            <label>Username :</label>
+                                            <input nbInput
+                                                   class="form-control"
+                                                   fullWidth
+                                                   placeholder="Username"
+                                                   formControlName="username"
+                                                   autofocus>
+                                        </div>
+                                        <div class="form-control-group mt-3">
+                                            <label>Password :</label>
+                                            <input nbInput
+                                                   type="password"
+                                                   class="form-control"
+                                                   fullWidth
+                                                   formControlName="password"
+                                                   placeholder="Password">
+                                        </div>
+                                        <button nbButton fullWidth type="submit" status="info" class="mt-5 shadow-lg"
+                                        [disabled]="loginForm.invalid" >
+                                            login
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </div>
+        </div>
+    </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,37 @@
+nb-card{
+    min-height: 80vh;
+  }
+  
+  .topic{
+    text-transform: uppercase;
+    background-image:linear-gradient(to right, #775e54 0%, #636FA4  51%, #E8CBC0  100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  input[type="file"] {
+    display: none;
+   
+  }
+
+  .input-file {
+    background-image: linear-gradient(to right, #2ce69b, #00d68f);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border: none;
+    color: #ffffff;
+    border-radius: 4rem;
+    padding: 0.75rem 4rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 2rem 0;
+    
+  }
+  
+  .input-file:hover {
+    cursor: pointer;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    background-image: none;
+    background-color: white;
+    color: #2ce69b;
+  }

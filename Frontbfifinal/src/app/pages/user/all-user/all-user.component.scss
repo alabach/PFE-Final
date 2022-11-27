@@ -1,0 +1,24 @@
+nb-card {
+    height: 80vh;
+  }
+  
+  thead{
+    background-image: -webkit-linear-gradient(right, rgba(238, 12, 46, 0.55), rgba(9, 9, 229, 0.59));
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  }
+  
+  tbody tr:hover{
+    background-image: -webkit-linear-gradient(right, #fce5e9, #e0e0fd);
+  }
+  
+  
+  .table-pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+  }
+  
+  button:focus{
+    outline: none !important;
+  }

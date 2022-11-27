@@ -1,0 +1,66 @@
+<nb-card >
+    <nb-card-header class="text-center">
+        <h3>Add User</h3>
+    </nb-card-header>
+    <nb-card-body>
+        <div class="d-flex  justify-content-center">
+            <form class="p-0 m-0  w-100" [formGroup]="userForm" (submit)="onAAddUser()">
+                <div class="step-form-group  mb-4">
+                    <label class="col-sm-12 col-lg-4">Username : </label>
+                    <input class="col-sm-12 col-lg-6" type="text" nbInput fullWidth
+                           formControlName="username"
+                           placeholder="Enter Username">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-sm-12 col-lg-4">Firstname: </label>
+                    <input class="col-sm-12 col-lg-6" type="text" nbInput fullWidth
+                           formControlName="firstname"
+                           placeholder="Enter Firstname">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-sm-12 col-lg-4">Lastname: </label>
+                    <input class="col-sm-12 col-lg-6" type="text" nbInput fullWidth
+                           formControlName="lastname"
+                           placeholder="Enter Lastname">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-sm-12 col-lg-4">Email: </label>
+                    <input class="col-sm-12 col-lg-6" type="text" nbInput fullWidth
+                           formControlName="email"
+                           placeholder="Enter Email">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-sm-12 col-lg-4">Password: </label>
+                    <input class="col-sm-12 col-lg-6" type="password" nbInput fullWidth
+                           formControlName="password"
+                           placeholder="Enter Password">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-sm-12 col-lg-4">Phone: </label>
+                    <input class="col-sm-12 col-lg-6" type="text" nbInput fullWidth
+                           formControlName="phone"
+                           placeholder="Enter Phone Number">
+                </div>
+                <div class="step-form-group mb-4">
+                    <label class="col-lg-4 col-sm-12">Role : </label>
+                    <nb-select shape="rectangle" class="col-sm-12  col-lg-6 pl-0 pr-0" fullWidth
+                               size="medium"
+                               formControlName="roles"
+                               placeholder="Select Role">
+                        <nb-option [value]="'ADMIN'">Admin</nb-option>
+                        <nb-option [value]="'MANAGER'">MANAGER</nb-option>
+                        <nb-option [value]="'COLLABORATOR'">Collaborator</nb-option>
+                    </nb-select>
+                </div>
+                <div class="text-center">
+                    <button nbButton class="text-center shadow-sm mr-2" (click)="onCancel()">
+                        Cancel
+                    </button>
+                    <button nbButton status="success" type="submit" class="text-center shadow-sm ml-2" [disabled]="userForm.invalid">
+                        Add User
+                    </button>
+                </div>
+            </form>
+        </div>
+    </nb-card-body>
+</nb-card>

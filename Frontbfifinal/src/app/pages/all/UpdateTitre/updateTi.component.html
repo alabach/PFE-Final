@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="animate__animated animate__backInLeft">
+            <nb-card-header >
+              <button class="bg-transparent border-0 d-flex justify-content-start" (click)="backClicked()"  >
+                <fa-icon  [icon]="faCircleChevronLeft" size="xl" ></fa-icon>
+            </button>
+            <h2 class="topic d-flex justify-content-center">edit Titre</h2>
+            </nb-card-header>
+            <nb-card-body>
+              <form [formGroup]="titreForm" >
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label  class="label">Date jouissance</label>
+                    <input type="Date" nbInput fullWidth  formControlName="date_jouissance" [(ngModel)]="Titre.date_jouissance" >
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputLastName" class="label">Taux d'inetert</label>
+                    <input type="number" nbInput fullWidth id="inputLastName" placeholder="Taux" formControlName="taux_intr" [(ngModel)]="Titre.taux_intr">
+                  </div>
+                </div>
+                
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputLastName" class="label">type taux</label>
+                    <nb-select  fullWidth placeholder="Type" formControlName="typeTaux" [(ngModel)]="Titre.typeTaux">
+                     <nb-option value="Fixe" >Fixe</nb-option>
+                     <nb-option value="Variable" >Variable</nb-option>
+                  </nb-select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label  class="label">Valeur Unitaire</label>
+                    <input type="text" nbInput fullWidth  placeholder="Valeur" formControlName="valeur_nominale_unit" [(ngModel)]="Titre.valeur_nominale_unit">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputEmail" class="label">Date 1er tombée</label>
+                    <input type="date" nbInput fullWidth id="inputEmail" placeholder="Date 1er" formControlName="date1ereT" [(ngModel)]="Titre.date1ereT">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label  class="label">Date fin</label>
+                    <input type="date" nbInput fullWidth  placeholder="Valeur" formControlName="date_Fin" [(ngModel)]="Titre.date_Fin">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label  class="label">Periodicite inetert</label>
+                    <nb-select  fullWidth placeholder="Type" formControlName="periodicite_Interet" [(ngModel)]="Titre.periodicite_Interet">
+                      <nb-option value="ANNUELLE" >ANNUELLE</nb-option>
+                      <nb-option value="ATERME" >ATERME</nb-option>
+                   </nb-select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputWebsite" class="label">Periodicite Amortissement</label>
+                    <nb-select  fullWidth placeholder="Type" formControlName="periodicite_Amor" [(ngModel)]="Titre.periodicite_Amor">
+                      <nb-option value="ANNUELLE" >ANNUELLE</nb-option>
+                      <nb-option value="ATERME" >ATERME</nb-option>
+                   </nb-select>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center" style="margin-top:10px">
+              <button type="submit" status="success" nbButton [disabled]="titreForm.invalid || titreForm.untouched" nbButton (click)="UpdateTitre()">Submit</button>
+              </div>
+            </form> 
+            </nb-card-body>
+          </nb-card>
+    </div>
+</div>

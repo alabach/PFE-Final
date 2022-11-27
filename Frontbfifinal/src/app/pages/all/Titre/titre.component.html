@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <button
+          class="bg-transparent border-0 d-flex justify-content-start"
+          (click)="backClicked()"
+        >
+          <fa-icon [icon]="faCircleChevronLeft" size="xl"></fa-icon>
+        </button>
+
+        <h2 class="topic d-flex justify-content-center">TITRES</h2>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="mb-5">
+          <form class="justify-content-between d-flex" [formGroup]="researchForm">
+            
+                        <nb-select shape="rectangle"
+                                class="col-md-2  animate__animated animate__backInLeft pl-0 pr-0"
+                                fullWidth
+                                size="medium"
+                                placeholder="Select Periodicite Amortissement"
+                                formControlName="ammortissement"
+                                (selectedChange)="onSearchChange()">
+                        <nb-option value="ANNUELLE">ANNUELLE</nb-option>
+                        <nb-option value="ATERME">ATERME</nb-option>
+                        <nb-option value="all">All</nb-option>
+                        </nb-select>
+          </form>
+        </div>
+      
+        <table
+          class="table table-striped w-auto animate__animated animate__backInUp"
+        >
+          <thead>
+            <tr>
+              <th >Date jouissance</th>
+              <th>Taux d'interet</th>
+              <th>Type Taux</th>
+              <th>Valeur Unitaire</th>
+              <th >Date 1er Tombée</th>
+              <th >DateFin</th>
+              <th>Periodicite interet</th>
+              <th>Periodicite Amortissement</th>
+              <th>Echeance local</th>
+              <th>Echeance IFRS</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of TitreList">
+              <td>{{ t.date_jouissance }}</td>
+              <td>{{ t.taux_intr * 100 }}%</td>
+              <td>{{ t.typeTaux }}</td>
+              <td>{{ t.valeur_nominale_unit }}</td>
+              <td>{{ t.date1ereT }}</td>
+              <td>{{ t.date_Fin }}</td>
+              <td>{{ t.periodicite_Interet }}</td>
+              <td>{{ t.periodicite_Amor }}</td>
+              <td>
+                <button
+                  class="bg-transparent border-0"
+                  nbTooltipPlacement="top"
+                  nbTooltipStatus="dark"
+                  nbTooltip="Edit"
+                  [routerLink]="['/pages/all/echeance/', t.id_t]"
+                >
+                  <fa-icon
+                    [icon]="faPlay"
+                    size="xl"
+                    class="text-success"
+                  ></fa-icon>
+                </button>
+              </td>
+              <td>
+                <button
+                  class="bg-transparent border-0"
+                  nbTooltipPlacement="top"
+                  nbTooltipStatus="dark"
+                  nbTooltip="Edit"
+                  [routerLink]="'/pages/all/echeanceifrs/'"
+                >
+                  <fa-icon
+                    [icon]="faPlay"
+                    size="xl"
+                    class="text-success"
+                  ></fa-icon>
+                </button>
+              </td>
+              <td>
+                <div class="d-flex ml-auto mr-auto justify-content-between">
+                  <button
+                    class="bg-transparent border-0"
+                    nbTooltipPlacement="top"
+                    nbTooltipStatus="dark"
+                    nbTooltip="Delete"
+                    (click)="deleteTitre(t.id_t)"
+                  >
+                    <fa-icon
+                      [icon]="faTrash"
+                      size="xl"
+                      class="text-danger"
+                    ></fa-icon>
+                  </button>
+                  <button
+                    class="bg-transparent border-0"
+                    nbTooltipPlacement="top"
+                    nbTooltipStatus="dark"
+                    nbTooltip="Edit"
+                    [routerLink]="['/pages/all/updateTi/', t.id_t]"
+                  >
+                    <fa-icon
+                      [icon]="faPenToSquare"
+                      size="xl"
+                      class="text-primary"
+                    ></fa-icon>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

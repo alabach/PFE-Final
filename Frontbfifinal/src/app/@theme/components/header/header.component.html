@@ -1,0 +1,16 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()"><span>BFI</span></a>
+  </div>
+</div>
+
+<div class="header-container">
+  <nb-user size="giant"
+  [name]="user.firstname + ' ' + user.lastname"
+  [title]="user.roles[0]">
+</nb-user>
+<button nbButton (click)="onSignOut()" class="ml-5 bg-transparent shadow-none border-0">LOGOUT</button>
+</div>

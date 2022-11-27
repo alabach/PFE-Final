@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card class="animate__animated animate__backInLeft">
+            <nb-card-header >
+              <button class="bg-transparent border-0 d-flex justify-content-start" (click)="backClicked()" >
+                <fa-icon  [icon]="faCircleChevronLeft" size="xl" ></fa-icon>
+            </button>
+            <h2 class="topic d-flex justify-content-center">edit emetteur</h2>
+            </nb-card-header>
+            <nb-card-body>
+              <form [formGroup]="emetteurForm">
+              <div class="row">
+                
+                
+                <div class="col-sm-6">
+                  
+                    <label for="inputFirstName" class="label">Emetteur</label>
+                    <input type="text" nbInput fullWidth id="inputFirstName"   placeholder=" Name"  formControlName="nameEmetteur" [(ngModel)]="Emetteur.nameEmetteur" >
+                  
+                </div>
+                <div class="col-sm-6">
+                  
+                    <label for="inputLastName" class="label">Pays Emetteur</label>
+                    <input type="text" nbInput fullWidth id="inputLastName" placeholder="Pays" formControlName="paysEmetteur" [(ngModel)]="Emetteur.paysEmetteur">
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  
+                    <label for="inputEmail" class="label">Segment</label>
+                    
+                    <nb-select fullWidth formControlName="segmentE" [(ngModel)]="Emetteur.segmentE" >
+                      <nb-option value="ETAT">ETAT</nb-option>
+                      <nb-option value="ENTREPRISE">ENTREPRISE</nb-option>
+                      <nb-option value="BANQUE">BANQUE</nb-option>
+                      <nb-option value="ENTREPRISE_BTP">ENTREPRISE_BTP</nb-option>
+                    </nb-select>
+                </div>
+                <div class="col-sm-6">
+                  
+                    <label for="inputWebsite" class="label">Secteur</label>
+                    
+                    <nb-select fullWidth formControlName="secteurE" [(ngModel)]="Emetteur.secteurE" >
+                      <nb-option value="PUBLIQUE">PUBLIQUE</nb-option>
+                      <nb-option value="PRIVE">PRIVE</nb-option>
+                    </nb-select>
+                </div>
+              
+              </div>
+            
+              <div class="d-flex justify-content-center" style="margin-top:50px">
+              <button type="submit" status="success" 
+              [disabled]="emetteurForm.invalid || emetteurForm.untouched" nbButton (click)="UpdateEmetteur()">Submit</button>
+              </div>
+            </form>
+            </nb-card-body>
+          </nb-card>
+    </div>
+</div>

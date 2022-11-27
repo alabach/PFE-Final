@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header class="text-center">
+        <h1>USERS</h1>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="col-12 p-0 d-flex">
+          <div class="col-8 p-0">
+            <form
+              class="justify-content-between d-flex flex-wrap"
+              [formGroup]="researchForm"
+            >
+              <input
+                type="text"
+                class="col-4 animate__animated animate__backInLeft"
+                nbInput
+                fullWidth
+                placeholder="search firstname"
+                formControlName="firstname"
+                (input)="onSearchChange()"
+              />
+              <input
+                type="text"
+                class="col-4 animate__animated animate__backInLeft"
+                nbInput
+                fullWidth
+                placeholder="search lastname"
+                formControlName="lastname"
+                (input)="onSearchChange()"
+              />
+              <nb-select
+                shape="rectangle"
+                class="col-3 pl-0 pr-0 animate__animated animate__backInLeft"
+                fullWidth
+                size="medium"
+                placeholder="Select Role"
+                formControlName="role"
+                (selectedChange)="onSearchChange()"
+              >
+                <nb-option [value]="'all'">All</nb-option>
+                <nb-option [value]="'ADMIN'">Admin</nb-option>
+                <nb-option [value]="'MANAGER'">Manager</nb-option>
+                <nb-option [value]="'COLLABORATOR'">Collaborator</nb-option>
+              </nb-select>
+              <button
+                class="bg-transparent border-0 animate__animated animate__backInLeft"
+                nbTooltipPlacement="top"
+                nbTooltipStatus="dark"
+                nbTooltip="Reset"
+                (click)="onResetSearch()"
+              >
+                <fa-icon
+                  [icon]="faRetweet"
+                  size="xl"
+                  class="text-success shadow-lg"
+                ></fa-icon>
+              </button>
+            </form>
+          </div>
+          <div
+            class="col-4 text-right p-0 animate__animated animate__backInLeft"
+          >
+            <button
+              nbButton
+              class="shadow-sm"
+              status="info"
+              (click)="onAddUser()"
+            >
+              Add User
+            </button>
+          </div>
+        </div>
+        <div class="animate__animated animate__backInUp col-12 p-0">
+          <table class="table shadow-lg mt-3">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">Username</th>
+                <th scope="col" class="text-center">Firstname</th>
+                <th scope="col" class="text-center">Lastname</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Phone Number</th>
+                <th scope="col" class="text-center">Role</th>
+                <th scope="col" class="text-center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userList">
+                <td class="text-center col-2">
+                  {{ user.username }}
+                </td>
+                <td class="text-center col-2">
+                  {{ user.firstname }}
+                </td>
+                <td class="text-center col-2">
+                  {{ user.lastname }}
+                </td>
+                <td class="text-center col-2">
+                  {{ user.email }}
+                </td>
+                <td class="text-center col-2">
+                  {{ user.phone }}
+                </td>
+                <td class="text-center col-2">
+                  {{ user.roles[0].name }}
+                </td>
+
+                <td class="col-1">
+                  <div class="d-flex ml-auto mr-auto justify-content-between">
+                    <button
+                      class="bg-transparent border-0"
+                      nbTooltipPlacement="top"
+                      nbTooltipStatus="dark"
+                      nbTooltip="Edit"
+                      (click)="onEditUser(user.id)"
+                    >
+                      <fa-icon
+                        [icon]="faPenToSquare"
+                        size="xl"
+                        class="text-primary"
+                      ></fa-icon>
+                    </button>
+                    <button
+                      *ngIf="currentUser.id !== user.id"
+                      class="bg-transparent border-0"
+                      nbTooltipPlacement="top"
+                      nbTooltipStatus="dark"
+                      nbTooltip="Delete"
+                      (click)="onDeleteUser(user.id)"
+                    >
+                      <fa-icon
+                        [icon]="faTrash"
+                        size="xl"
+                        class="text-danger"
+                      ></fa-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
